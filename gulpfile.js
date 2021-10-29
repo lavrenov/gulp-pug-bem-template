@@ -79,13 +79,7 @@ const path = {
         src: "./src/img/favicon/*.{jpg,jpeg,png,gif,tiff}",
         dist: "./dist/img/favicons/",
     },
-    deploy: {
-        src: "dist/**",
-        host: "lavrenov.su",
-        user: "",
-        password: "",
-        destination: "/",
-    },
+    deploy: require("./config"),
     clean: "./dist/*"
 };
 
