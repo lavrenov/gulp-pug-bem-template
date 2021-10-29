@@ -1,0 +1,85 @@
+{
+  "name": "gulp-pug-bem-template",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Lavrenov Evgeny",
+  "license": "ISC",
+  "scripts": {
+    "dev": "gulp",
+    "deploy": "gulp deploy --production",
+    "build": "gulp prod --production",
+    "build:views": "gulp views --production",
+    "build:styles": "gulp styles --production",
+    "build:scripts": "gulp scripts --production",
+    "build:images": "gulp images --production",
+    "build:webp": "gulp webp --production",
+    "build:sprites": "gulp sprites --production",
+    "build:fonts": "gulp fonts --production",
+    "build:favicons": "gulp favicons --production",
+    "lint:styles": "stylelint \"src/**/*.scss\" --syntax=scss",
+    "lint:styles --fix": "stylelint \"src/**/*.scss\" --syntax=scss --fix",
+    "lint:scripts": "eslint --color ./src/blocks",
+    "lint:scripts --fix": "eslint --fix --color ./src/blocks",
+    "bem-c": "bem create -l src/blocks/components",
+    "bem-m": "bem create -l src/blocks/modules"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "bem-tools-core": "0.0.3",
+    "bem-tools-create": "^2.3.0",
+    "browser-sync": "^2.27.5",
+    "del": "^6.0.0",
+    "eslint": "^7.32.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-favicons": "^3.0.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.1.3",
+    "gulp-rigger": "^0.5.8",
+    "gulp-rsync": "^0.0.9",
+    "gulp-sass": "^4.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^4.0.1",
+    "imagemin-giflossy": "^5.1.10",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^6.0.0",
+    "imagemin-zopfli": "^7.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-order": "^4.1.0",
+    "stylelint-selector-bem-pattern": "^2.1.1",
+    "vinyl-ftp": "^0.6.1",
+    "yargs": "^7.1.2"
+  },
+  "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@popperjs/core": "^2.9.3",
+    "bootstrap": "^5.1.0",
+    "jquery": "^3.6.0",
+    "owl.carousel": "^2.3.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "!(_*).scss": [
+      "stylelint --fix --color --config ./.stylelintrc"
+    ],
+    "*.js": [
+      "eslint --fix --color"
+    ]
+  }
+}
